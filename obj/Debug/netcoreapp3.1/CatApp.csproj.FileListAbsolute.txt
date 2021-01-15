@@ -1,0 +1,15 @@
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\CatApp.exe
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\CatApp.deps.json
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\CatApp.runtimeconfig.json
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\CatApp.runtimeconfig.dev.json
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\CatApp.dll
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\CatApp.pdb
+C:\Users\zelda\source\repos\CatApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.csprojAssemblyReference.cache
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.AssemblyInfoInputs.cache
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.AssemblyInfo.cs
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.csproj.CoreCompileInputs.cache
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.csproj.CopyComplete
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.dll
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.pdb
+C:\Users\zelda\source\repos\CatApp\obj\Debug\netcoreapp3.1\CatApp.genruntimeconfig.cache
