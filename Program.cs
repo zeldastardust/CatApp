@@ -15,15 +15,17 @@ namespace CatApp
         static async Task Main(string[] args)
         {
             Program program = new Program();
-            await program.GetCatBreeds();
+           
 
-            /*while (true)
+            while (true)
             {
                 Clear(); Console.CursorVisible = false;
-                WriteLine("Välkommen till Joke of the day !!");
+                WriteLine("Välkommen till Katt o skratt!!");
                 WriteLine();
-                WriteLine("1. Läs dagens top tio jokes!");
-                WriteLine("2. ?");
+                WriteLine("Välj ett alternativ och tryck enter!");
+                WriteLine();
+                WriteLine("1. Läs fakta om katter utifrån ras ");
+                WriteLine("2. Läs dagens tio jokes ");
                 WriteLine("X. Avsluta\n");
 
 
@@ -32,15 +34,40 @@ namespace CatApp
                 switch (inp)
                 {
                     case "1":
+                        WriteLine("Skriv namnet på kattrasen du vill hämta fakta om och tryck enter !");
+                        await program.GetCatBreeds();
+                        ReadLine();
+                        break;
+
+                    case "2":
+                        WriteLine("Tryck enter för att läsa punchlinen, enter för nästa joke !");
                         await program.GetJokeItems();
+                        ReadLine();
                         break;
 
                     case "x":
                         Environment.Exit(0);
                         break;
                 }
-            }*/
+            }
 
+        }
+        private async Task GetJokeItems()
+        {
+            string response = await client.GetStringAsync
+                ("https://official-joke-api.appspot.com/random_ten");
+
+            List<Joke> joke = JsonConvert.DeserializeObject<List<Joke>>(response);
+
+
+            foreach (var item in joke)
+            {
+                Console.WriteLine(item.setup);
+                ReadKey();
+                Console.WriteLine(item.punchline);
+                ReadKey();
+                WriteLine();
+            }
         }
         private async Task GetCatBreeds()
         {
@@ -49,21 +76,41 @@ namespace CatApp
 
             Breeds cat = JsonConvert.DeserializeObject<Breeds>(response);
 
-            foreach (var data in cat.Data) 
+            foreach (var data in cat.Data)
             {
                 WriteLine(data.breed);
                 WriteLine();
             }
-            WriteLine("what cat would you like to read about?");
-            var index =  ReadLine();
 
-            for (var i=0; i< cat.Data.Count; i++)
+                WriteLine("Vilken kattras vill du veta mer om ?");
+                WriteLine("Skriv rasens namn och tryck enter!");
+                WriteLine("obs du måste börja namnet på rasen med stor bokstav");
+                WriteLine();
+
+            string index = ReadLine().ToLower();
+
+            if (String.IsNullOrEmpty(index))//error handeling empty input
             {
-                //if(i == index)
-               // {
-                    WriteLine(cat.Data[i].country);
-              //  }
+                WriteLine("Fältet får inte vara tomt!");
+                return;
             }
+            else
+            {
+
+                foreach (var item in cat.Data)
+                {
+                    if (index == item.breed)
+                    {
+                        WriteLine("Ras:" + item.breed);
+                        WriteLine("Ursprungsland:" + item.country);
+                        WriteLine("Härkomst: " + item.origin);
+                        WriteLine("Päls: " + item.coat);
+                        WriteLine("Mönster: " + item.pattern);
+
+                    }
+                }
+            }
+            
         }
         /*private async Task GetJokeId()
         {
@@ -80,6 +127,16 @@ namespace CatApp
         }*/
 
     }
+
+
+    class Joke
+    {
+        public int id { get; set; }
+        public string type { get; set; }
+        public string setup { get; set; }
+        public string punchline { get; set; }
+    }
+
 
     class Breeds
     {
