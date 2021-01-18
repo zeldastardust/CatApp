@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using static System.Console;
@@ -84,10 +83,10 @@ namespace CatApp
 
                 WriteLine("Vilken kattras vill du veta mer om ?");
                 WriteLine("Skriv rasens namn och tryck enter!");
-                WriteLine("obs du måste börja namnet på rasen med stor bokstav");
+                WriteLine("obs du måste använda stor bokstav där det är stor bokstav i listan!!");
                 WriteLine();
 
-            string index = ReadLine().ToLower();
+            string index = ReadLine();
 
             if (String.IsNullOrEmpty(index))//error handeling empty input
             {
